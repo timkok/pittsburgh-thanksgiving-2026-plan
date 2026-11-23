@@ -452,7 +452,7 @@ function computeDayPlan(planId, dayKey){
     if(ST.phipps==='no'){
       costDelta -= 117;
       warnings.push({type:'ok', msg:'✅ 周五 Phipps 已切换为「无票/放弃」：已从周五日程移除并立减 $117，改酒店旁暖餐早休（周六 17:00 Gaucho 不受影响）。'});
-    }else if(friHotelEtaMin > pMin('17:45')){
+    }else if(friHotelEtaMin > pMin('16:30')){
       warnings.push({type:'danger', msg:`⚠️ 按当前出发/延误估算，预计 ${fMin(friHotelEtaMin)} 才抵酒店（较晚！）。强烈建议把 Phipps 切为「无票/放弃」以免过度疲劳，改为酒店旁热饭早睡。`});
     }else if(ST.phipps==='unknown'){
       warnings.push({type:'warn', msg:'⏳ 周五 Phipps 门票尚未预订（官网实时余票无法自动查，切勿指望现场买票！），请家长在官网确认 19:30–20:30 是否有 5 人余票。'});
