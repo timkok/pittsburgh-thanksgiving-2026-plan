@@ -1,0 +1,534 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>奶奶大字图包（可打印）｜2026 匹兹堡家庭三日行</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  background: #FAF7F0;
+  color: #16241E;
+  -webkit-font-smoothing: antialiased;
+}
+.card-canvas {
+  width: 1080px;
+  background: #FAF7F0;
+  padding: 44px 44px 36px 44px;
+  border: 6px solid #164234;
+}
+.hdr {
+  background: #164234;
+  color: #FAF7F0;
+  border-radius: 22px;
+  padding: 32px 36px;
+  margin-bottom: 28px;
+}
+.hdr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.badge-gold {
+  background: #D99B26;
+  color: #16241E;
+  font-size: 32px;
+  font-weight: 800;
+  padding: 8px 22px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.badge-plan {
+  background: rgba(255,255,255,0.16);
+  color: #FAF7F0;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 12px;
+}
+.hdr h1 { font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
+.hdr p { font-size: 34px; line-height: 1.4; color: #E8F1EC; font-weight: 500; }
+
+.legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: #EFE9DC;
+  border: 2px solid #D6CCB6;
+  border-radius: 16px;
+  padding: 16px 22px;
+  margin-bottom: 26px;
+  font-size: 28px;
+  font-weight: 700;
+}
+.pill {
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-size: 27px;
+  font-weight: 800;
+  display: inline-block;
+}
+.pill-must { background: #164234; color: #FFF; }
+.pill-opt { background: #2D6A8E; color: #FFF; }
+.pill-rain { background: #B45309; color: #FFF; }
+.pill-rest { background: #E3F2EA; color: #164234; border: 2px solid #164234; }
+
+.node {
+  background: #FFFFFF;
+  border: 3px solid #D5CEBE;
+  border-left: 14px solid #164234;
+  border-radius: 20px;
+  padding: 26px 30px;
+  margin-bottom: 22px;
+}
+.node.opt { border-left-color: #2D6A8E; }
+.node.rain { border-left-color: #B45309; }
+.node-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 14px;
+}
+.node-time {
+  font-size: 46px;
+  font-weight: 900;
+  color: #164234;
+  letter-spacing: -0.5px;
+}
+.node-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: #111D18;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.node-en {
+  font-size: 27px;
+  font-weight: 600;
+  color: #4A5D54;
+  margin-bottom: 12px;
+}
+.node-line {
+  font-size: 33px;
+  line-height: 1.48;
+  color: #1F3029;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.node-sub {
+  font-size: 30px;
+  line-height: 1.45;
+  color: #2D453B;
+  background: #F4F8F5;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+.box-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+  margin-bottom: 20px;
+}
+.info-box {
+  background: #EAF3EE;
+  border: 3px solid #164234;
+  border-radius: 18px;
+  padding: 22px 24px;
+}
+.info-box.warm {
+  background: #FEF3E2;
+  border-color: #B45309;
+}
+.info-box h3 { font-size: 33px; font-weight: 900; margin-bottom: 10px; color: #164234; }
+.info-box.warm h3 { color: #9A3412; }
+.info-box p { font-size: 30px; line-height: 1.45; font-weight: 600; }
+
+.story-strip {
+  background: #1E3A2F;
+  color: #FAF7F0;
+  border-radius: 18px;
+  padding: 22px 28px;
+  margin-top: 18px;
+  font-size: 31px;
+  line-height: 1.48;
+  font-weight: 600;
+}
+.story-strip strong { color: #F5C35B; }
+
+.ftr {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 2px solid #D6CCB6;
+  font-size: 24px;
+  color: #516159;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body { background:#E7E2D6; padding:20px; }
+.toolbar { max-width:1080px; margin:0 auto 20px; background:#164234; color:#FFF; padding:18px 24px; border-radius:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.toolbar button { background:#D99B26; color:#14211B; border:none; padding:12px 22px; font-size:20px; font-weight:800; border-radius:10px; cursor:pointer; }
+.page-wrap { display:flex; justify-content:center; margin-bottom:28px; page-break-after:always; }
+@media (max-width: 1120px) { .card-canvas { width:100%; padding:20px; } .hdr h1 { font-size:32px; } .node-time { font-size:28px; } .node-title { font-size:24px; } .node-line,.node-sub,.day-row { font-size:19px; } }
+@media print { .toolbar { display:none; } body { background:#FFF; padding:0; } .page-wrap { margin:0; zoom:0.68; } }
+</style></head><body>
+<div class="toolbar">
+  <div><strong>👵 奶奶大字图包（5张完整版）</strong> · 可直接打印或去 family/ 文件夹转发高清 PNG</div>
+  <div><button onclick="window.print()">🖨️ 打印全部 5 页</button></div>
+</div>
+<div class='page-wrap'>
+<div class="card-canvas">
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="badge-gold">图 1/5 · 三天总览图</span>
+      <span class="badge-plan">默认 Plan A 均衡首选 · 2026感恩节</span>
+    </div>
+    <h1>匹兹堡五人家庭三日行</h1>
+    <p>11/27(周五) — 11/29(周日) ｜ 住：Residence Inn Oakland (3341 Forbes Ave)</p>
+  </div>
+
+  <div class="hl-strip">
+    🚶 哪天走得最多：<strong>周六 11/28（约 2.6km 轻松档，每 300-450 米可坐）</strong><br>
+    🌦️ 天气提醒（已核实，周四晚复看）：周五小雨刮风逛温暖室内，周六周日放晴看风景！
+  </div>
+
+  <div class="day-block">
+    <div class="day-head">
+      <span class="day-tag">周五 11/27｜出发抵城</span>
+      <span class="day-wx">🌧️ 44°F 小雨·室内为主</span>
+    </div>
+    <div class="day-row">🚗 <strong>07:30 从 Bridgewater 出发</strong> → 总车程约 6 小时（中途 2 次休息+充电）</div>
+    <div class="day-row">🏨 <strong>15:00 入住酒店午休</strong> → 16:50 The Porch 热晚饭 → <strong>18:30 Phipps 暖花房灯展（必去）</strong></div>
+    <div class="day-row">🛏️ <strong>20:25 回到酒店休息</strong> ｜ 避开北岸美式足球赛人流与冷风</div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-head">
+      <span class="day-tag">周六 11/28｜全城精华日</span>
+      <span class="day-wx">⛅ 47°F 局部晴朗·最佳日</span>
+    </div>
+    <div class="day-row">🚗 <strong>09:45 酒店出发</strong> → 市内车程合计约 25 分钟（只停 3 次车不折返）</div>
+    <div class="day-row">🏛️ <strong>10:00 亨氏历史与体育馆（必去）</strong> → <strong>13:50 圣诞市场 &amp; PPG 冰场（必去）</strong></div>
+    <div class="day-row">🌇 <strong>15:55 华盛顿山缆车看三河日落（必去）</strong> → <strong>17:35 Kavsar 乌兹别克菜/Resy 晚餐</strong></div>
+    <div class="day-row">🛏️ <strong>19:35 回到酒店休息</strong>（累了可随时跳过步行直接开车上山顶！）</div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-head">
+      <span class="day-tag">周日 11/29｜晴朗回家</span>
+      <span class="day-wx">☀️ 51°F 局部晴朗·早走避堵</span>
+    </div>
+    <div class="day-row">🚗 <strong>09:00 酒店吃饱热早餐退房出发</strong> → 返程约 5.8 小时（Breezewood 热午饭+充电）</div>
+    <div class="day-row">🕊️ <strong>可选短停：10:20 Flight 93 国家纪念园</strong>（免费暖厅；想早到家可直接略过！）</div>
+    <div class="day-row">🏠 <strong>预计 15:50–16:40（直达）或 17:15–18:10（含纪念园）回到 Bridgewater 到家</strong></div>
+  </div>
+
+  <div class="legend-bar">
+    <span>图例（图文并用）：</span>
+    <span>🚗 开车</span><span>🍽️ 吃饭</span><span>🏛️ 景点</span><span>🌇 看风景</span><span>🪑 可坐着休息</span><span>👦 孩子喜欢</span>
+    <span class="pill pill-must">必去</span><span class="pill pill-opt">可选</span><span class="pill pill-rain">雨天/累了备选</span>
+  </div>
+
+  <div class="ftr">
+    <span>版本：Plan A 默认版（美东时间 America/New_York）· 固定地址：3341 Forbes Ave</span>
+    <span>长按可保存相册 · 微信直接转发</span>
+  </div>
+</div></div><div class='page-wrap'>
+<div class="card-canvas">
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="badge-gold">图 2/5 · 周五日图</span>
+      <span class="badge-plan">Plan A 均衡首选 · 2026-11-27 周五 (ET)</span>
+    </div>
+    <h1>周五：出发抵城 · 温暖花房灯展</h1>
+    <p>07:30 Bridgewater 出发 → 15:00 入住酒店午休 → 18:30 Phipps 温室（预报 44°F 小雨大风）</p>
+  </div>
+  
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">07:30 出发</span>
+            <span class="pill pill-must">必去 · 预计</span>
+          </div>
+          <div class="node-title">🚗 从 Bridgewater 出发 → Breezewood 吃热午饭+充电</div>
+          <div class="node-en">Breezewood Sheetz Supercharger & Dining Hub (16417 Lincoln Hwy)</div>
+          <div class="node-line">11:15 到 Breezewood｜开车约 3.5 小时｜下车走约 2 分钟｜在餐厅大门会合吃热饭（充电35分钟同时完成）</div>
+          <div class="node-sub">🪑 休息/下客：暖气餐厅坐吃热午饭+干净洗手间（如 55% 出发先于 09:50 在 Carlisle 停20分钟）<br>👦 孩子找什么：车上和奶奶一起找 2 座穿山隧道并读出名字（寻宝 FAM-01）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">13:05 短停</span>
+            <span class="pill pill-must">必去 · 预计</span>
+          </div>
+          <div class="node-title">🪑 北萨默塞特高速服务区（不下高速·热饮洗手间+快充）</div>
+          <div class="node-en">North Somerset Travel Plaza WB (PA Turnpike MP 112.3)</div>
+          <div class="node-line">13:05 到服务区｜开车约 1 小时｜下车走约 2 分钟｜在暖气大厅星巴克旁会合</div>
+          <div class="node-sub">🪑 休息/下客：室内暖气大厅与无障碍洗手间（预报山区 39°F 雨夹雪，不下高速最安全）<br>👦 孩子找什么：看看阿勒格尼山顶风车与海拔高度牌</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">15:00 入住</span>
+            <span class="pill pill-must">必去 · 已核实</span>
+          </div>
+          <div class="node-title">🏨 抵达奥克兰酒店办理入住 · 房间午休 1.5 小时</div>
+          <div class="node-en">Residence Inn Pittsburgh Oakland (3341 Forbes Ave, PA 15213)</div>
+          <div class="node-line">15:00 到酒店｜下车走约 1 分钟进大堂｜门前先卸行李｜房间平躺午休至 16:40</div>
+          <div class="node-sub">🪑 休息/下客：大堂沙发与客房床铺（15:00 避开北岸美式足球赛开球车流）<br>👦 孩子找什么：在客厅摊开双语寻宝纸卡，分配观察员与侦探任务</div>
+        </div>
+        <div class="node opt">
+          <div class="node-top">
+            <span class="node-time">16:50 晚饭</span>
+            <span class="pill pill-opt">可替换 · 预计</span>
+          </div>
+          <div class="node-title">🍽️ 申利广场 The Porch 暖胃晚饭（就在去花房路上）</div>
+          <div class="node-en">The Porch at Schenley (221 Schenley Dr, Pittsburgh)</div>
+          <div class="node-line">16:55 到餐厅｜开车 4 分钟｜下车走约 3 分钟｜在门口暖气座会合吃热汤与窑烤披萨</div>
+          <div class="node-sub">🪑 休息/下客：靠窗卡座暖气足，窗外正对亮灯的 42 层学习大教堂<br>👦 孩子找什么：隔窗画出学习大教堂尖塔轮廓（寻宝 OBS-01）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">18:30 必去</span>
+            <span class="pill pill-must">必去 · 已核实·须预约</span>
+          </div>
+          <div class="node-title">🏛️ 菲普斯温室冬季花房灯展 → 20:25 回酒店</div>
+          <div class="node-en">Phipps Conservatory Holiday Magic (1 Schenley Park)</div>
+          <div class="node-line">18:20 到温室｜开车 3 分钟｜正门先放奶奶下车｜室内平路慢逛 90 分钟｜20:25 回酒店</div>
+          <div class="node-sub">🪑 休息/下客：室内 20°C 热带玻璃房每厅有长椅，Café Phipps 随时坐喝热茶<br>👦 孩子找什么：找 2 种对称植物和迷你小火车（OBS-02），推理玻璃穹顶结构（DET-01）</div>
+        </div>
+  <div class="box-grid">
+    <div class="info-box">
+      <h3>🪑 今日坐休与洗手间站</h3>
+      <p>Breezewood 暖气餐厅、North Somerset 高速大厅、酒店套房、Café Phipps 室内座位（均有洗手间）。</p>
+    </div>
+    <div class="info-box warm">
+      <h3>💛 累了 / 下雨就这么改</h3>
+      <p>若抵城晚于 16:30 或太累：门口吃 The Porch 后改 19:30 场或直接回酒店早睡，把花房移到周六上午！</p>
+    </div>
+  </div>
+  <div class="story-strip">
+    <strong>📖 今日历史小故事：</strong>1893年钢铁合伙人捐建的维多利亚玻璃花房 Phipps，把寒冷煤烟冬夜变成了温暖热带春天（网站故事卡 HC-07）。
+  </div>
+  <div class="ftr">
+    <span>起点/终点：Residence Inn (3341 Forbes Ave) · 所有时间均为美东时间 (ET)</span>
+    <span>图标+文字标注：预计 / 可选 / 待核</span>
+  </div>
+</div></div><div class='page-wrap'>
+<div class="card-canvas">
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="badge-gold">图 3/5 · 周六日图</span>
+      <span class="badge-plan">Plan A 均衡首选 · 2026-11-28 周六 (ET)</span>
+    </div>
+    <h1>周六：历史馆 · 圣诞市场 · 山顶日落</h1>
+    <p>09:45 酒店出发 → 全三天最佳晴天 47°F（日落 16:55）→ 19:35 回到酒店</p>
+  </div>
+  
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">09:45 出发</span>
+            <span class="pill pill-must">必去 · 已核实</span>
+          </div>
+          <div class="node-title">🏛️ 亨氏历史中心 & 西宾州体育博物馆（全室内全电梯）</div>
+          <div class="node-en">Heinz History Center & Western PA Sports Museum (1212 Smallman St)</div>
+          <div class="node-line">10:00 到历史馆｜开车 8 分钟｜门口先下车走 2 分钟｜逛 2 小时（两孩子免费，5人仅$58！）</div>
+          <div class="node-sub">🪑 休息/下客：全馆电梯，一楼咖啡区与每层展厅均有长椅和干净洗手间<br>👦 孩子找什么：找巨型番茄酱瓶墙、老电车与 Steelers 冠军奖杯（OBS-03 / DET-02 / DET-06）</div>
+        </div>
+        <div class="node opt">
+          <div class="node-top">
+            <span class="node-time">12:15 午餐</span>
+            <span class="pill pill-opt">可选 · 预计</span>
+          </div>
+          <div class="node-title">🍽️ 老市场街吃午饭（或直接开4分钟去圣诞市场吃）</div>
+          <div class="node-en">Strip District (Penn Ave) / Market Square Primanti Bros.</div>
+          <div class="node-line">12:20 到餐厅｜平路走约 10 分钟（累了直接坐车 4 分钟去广场）｜在餐桌坐歇 50 分钟</div>
+          <div class="node-sub">🪑 休息/下客：暖和卡座休息吃热饭，体验夹薯条三明治或薄松饼<br>👦 孩子找什么：在公共街区找齐 5 处黑金配色元素（寻宝 FAM-03）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">13:50 逛市集</span>
+            <span class="pill pill-must">必去 · 已核实</span>
+          </div>
+          <div class="node-title">🏛️ 市集广场欧式圣诞市场 + PPG 玻璃城堡冰场</div>
+          <div class="node-en">Peoples Gas Holiday Market & UPMC Rink at PPG Place (Third Ave)</div>
+          <div class="node-line">13:50 到 PPG 车库｜电梯直达广场走约 3 分钟｜逛木屋喝热可可、看 65 英尺圣诞树</div>
+          <div class="node-sub">🪑 休息/下客：PPG 玻璃大厅暖气充足有座椅，奶奶坐看孙辈玩耍和找黄桥<br>👦 孩子找什么：找 3 种圣诞装饰（OBS-04）、地图认三条河（DET-03）、拍全家福（FAM-04）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">15:55 看全景</span>
+            <span class="pill pill-must">必去 · 很可能·备现金</span>
+          </div>
+          <div class="node-title">🌇 杜肯百年红木缆车 & 华盛顿山日落天际线（16:55日落）</div>
+          <div class="node-en">Duquesne Incline (1197 W Carson St) & Grandview Overlook</div>
+          <div class="node-line">15:55 到下站｜开车 5 分钟｜坐百年缆车上山看黄金日落与三河华灯（备$20零钱，65+凭Medicare免费）</div>
+          <div class="node-sub">🪑 休息/下客：若排队超20分钟或风大，直接开车上山顶 Grandview 路边下车拍5分钟就进餐厅！<br>👦 孩子找什么：从山顶指认三河尖角与黄桥（OBS-06），推理双车配重原理（DET-04）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">17:35 晚餐</span>
+            <span class="pill pill-must">必去 · 待核·须预约</span>
+          </div>
+          <div class="node-title">🍽️ Kavsar 乌兹别克菜（或 Resy 五人正餐）→ 19:35 回酒店</div>
+          <div class="node-en">Kavsar (16 Southern Ave) / Resy: Gaucho or DiAnoia's</div>
+          <div class="node-line">17:35 到餐厅｜从山顶开 3.4 分钟｜热乎手抓饭、大蒸饺与清汤饺子｜19:35 回酒店休息</div>
+          <div class="node-sub">🪑 休息/下客：热汤热茶暖身解乏；饭后奶奶和孩子先回酒店，司机一人去 2.4 英里外补满电<br>👦 孩子找什么：餐桌文化大考验：奶奶当裁判给全家人打分（寻宝 FAM-05）</div>
+        </div>
+  <div class="box-grid">
+    <div class="info-box">
+      <h3>🪑 今日坐休与洗手间站</h3>
+      <p>Heinz 一楼咖啡区与全馆电梯、PPG 暖气玻璃大厅、Kavsar 暖气餐桌（每 300–450 米可坐）。</p>
+    </div>
+    <div class="info-box warm">
+      <h3>💛 累了 / 下雨就这么改</h3>
+      <p>不想走路或缆车排长队：跳过老街步行，直接开车上华盛顿山 Grandview 路边拍 5 分钟就进 Kavsar 吃热蒸饺！</p>
+    </div>
+  </div>
+  <div class="story-strip">
+    <strong>📖 今日历史小故事：</strong>一天串联三河交汇（HC-01）、446座黄桥（HC-02）、1898年老冰库历史馆（HC-03）与1877年百年缆车（HC-08）。
+  </div>
+  <div class="ftr">
+    <span>起点/终点：Residence Inn (3341 Forbes Ave) · 所有时间均为美东时间 (ET)</span>
+    <span>图标+文字标注：预计 / 可选 / 待核</span>
+  </div>
+</div></div><div class='page-wrap'>
+<div class="card-canvas">
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="badge-gold">图 4/5 · 周日日图</span>
+      <span class="badge-plan">Plan A 均衡首选 · 2026-11-29 周日 (ET)</span>
+    </div>
+    <h1>周日：大教堂晨拍 · 09:00 晴朗返家</h1>
+    <p>吃饱酒店热早餐 → 09:00 准点避峰出发（预报 51°F 局部晴朗）→ 傍晚前平安到家</p>
+  </div>
+  
+        <div class="node opt">
+          <div class="node-top">
+            <span class="node-time">08:00 早餐</span>
+            <span class="pill pill-opt">可选 · 待核内部</span>
+          </div>
+          <div class="node-title">🏛️ 酒店吃免费热早餐退房 → 学习大教堂外观晨拍（15分钟）</div>
+          <div class="node-en">Cathedral of Learning Exterior (4200 Fifth Ave, Pittsburgh)</div>
+          <div class="node-line">08:25 到草坪｜开车 3 分钟｜下车走 2 分钟拍42层哥特高塔全家福｜09:00 准点返程</div>
+          <div class="node-sub">🪑 休息/下客：车停路边短拍不久站（民族教室感恩节假日开放待电询 412-624-6000）<br>👦 孩子找什么：观察哥特尖拱门石雕（OBS-07）与 42 层退台设计推理（DET-05）</div>
+        </div>
+        <div class="node opt">
+          <div class="node-top">
+            <span class="node-time">10:20 短停</span>
+            <span class="pill pill-opt">先删 · 已核实·免费</span>
+          </div>
+          <div class="node-title">🌇 93 号航班国家纪念园（周日晴天可选历史站，绕行25分）</div>
+          <div class="node-en">Flight 93 National Memorial (6424 Lincoln Hwy, Stoystown)</div>
+          <div class="node-line">10:20 到游客中心｜开车约 1 小时 20 分｜下车走约 3 分钟｜参观温暖免费展厅与风铃塔 50 分钟</div>
+          <div class="node-sub">🪑 休息/下客：室内暖气游客中心、干净无障碍洗手间与坐看山谷座椅（想早回家直接跳过此站！）<br>👦 孩子找什么：听 93 英尺高 40 支风铃声，破解数字 93 与 40 的意义（DET-07）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">12:20 午餐</span>
+            <span class="pill pill-must">必去 · 预计</span>
+          </div>
+          <div class="node-title">🍽️ Breezewood 吃热午饭 + Model Y 充电（重叠 35 分钟）</div>
+          <div class="node-en">Breezewood Sheetz Supercharger & Dining Hub (16417 Lincoln Hwy)</div>
+          <div class="node-line">12:20 到 Breezewood｜下车走 2 分钟｜坐下吃热午饭上洗手间，同时充至 80%</div>
+          <div class="node-sub">🪑 休息/下客：暖和餐厅充分活动双腿，赶在 AAA 13:00 返程波峰前吃饱出发<br>👦 孩子找什么：奶奶宣布三天寻宝总分，颁发纸质小证书并由冠军点返程歌单（FAM-06）</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="node-time">15:00 最后休</span>
+            <span class="pill pill-must">必去 · 预计</span>
+          </div>
+          <div class="node-title">🚗 Carlisle 短补 20 分钟 → 回到 Bridgewater 到家！</div>
+          <div class="node-en">Carlisle Sheetz (1720 Harrisburg Pike) → Bridgewater, NJ</div>
+          <div class="node-line">15:00 到 Carlisle 休 20 分钟上洗手间｜预计 17:15–18:10 到家（若跳过纪念园则 15:50–16:40 到家！）</div>
+          <div class="node-sub">🪑 休息/下客：最后一站洗把脸喝热茶，稳稳开回新泽西吃热晚饭<br>👦 孩子找什么：全家合唱冠军歌单，约定下一次家庭旅行！</div>
+        </div>
+  <div class="box-grid">
+    <div class="info-box">
+      <h3>🪑 今日坐休与洗手间站</h3>
+      <p>酒店免费热早餐厅、Flight 93 暖气游客中心、Breezewood 餐厅、Carlisle 24h Sheetz（均有干净洗手间）。</p>
+    </div>
+    <div class="info-box warm">
+      <h3>💛 累了 / 下雨就这么改</h3>
+      <p>想早点到家或高速预报堵车：直接跳过 Flight 93 纪念园走 Turnpike 直达，15:50–16:40 天黑前就进家门！</p>
+    </div>
+  </div>
+  <div class="story-strip">
+    <strong>📖 今日历史小故事：</strong>脚下的 PA Turnpike 建于1940年，借用19世纪未完工铁路山洞建成美国第一条现代超级高速（故事卡 HC-11）。
+  </div>
+  <div class="ftr">
+    <span>起点/终点：Residence Inn (3341 Forbes Ave) · 所有时间均为美东时间 (ET)</span>
+    <span>图标+文字标注：预计 / 可选 / 待核</span>
+  </div>
+</div></div><div class='page-wrap'>
+<div class="card-canvas">
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="badge-gold">图 5/5 · 历史文化速览图</span>
+      <span class="badge-plan">编号与网站故事卡完全一致</span>
+    </div>
+    <h1>匹兹堡 6 处必看地标故事</h1>
+    <p>一处地点 · 一个眼前线索 · 一句讲得清的故事（网站可展开 30 秒 / 2 分钟完整版）</p>
+  </div>
+  
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-07 · 温室与公园</span>
+            <span class="pill pill-rest">2026-11-27, 2026-11-28</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">1893年 Phipps 温室：煤烟时代送给市民的一座玻璃春天</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>抬头看头顶洁白的弧形钢肋与透明玻璃穹顶——在1893年能撑起这么大一片无柱玻璃屋顶，正是匹兹堡钢铁工艺的绝活。</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>一百三十年前匹兹堡满城煤烟、冬天又冷又灰，钢铁合伙人亨利·菲普斯专门造了这座全玻璃大花房，让老百姓冬天也能推门走进温暖的热带春天。</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-03 · 钢铁与移民</span>
+            <span class="pill pill-rest">2026-11-28</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">从“世界钢都”到 Strip District 移民老市场</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>抬头看亨氏历史中心红砖外墙和厚重木梁——它原本不是博物馆，而是一百多年前用来存放冰块的巨型冷库！</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>眼前红砖仓库连片的 Strip District，百年前是全城火车运粮运钢的批发码头，意大利、波兰和中东移民的后代把烟火气留到了今天。</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-09 · 节日市集与城市</span>
+            <span class="pill pill-rest">2026-11-28</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">Market Square 圣诞市场与 PPG 玻璃城堡</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>抬头数一数 PPG 玻璃大楼屋顶尖尖的哥特小塔，看看它们如何把天空和巨型圣诞树倒映在镜面玻璃里！</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>眼前这座热闹的圣诞木屋广场早在1784年建城之初就是市民赶集的大市场，旁边那座像中世纪玻璃城堡的大楼，是用匹兹堡自己的玻璃产业建成的骄傲。</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-08 · 坡地交通</span>
+            <span class="pill pill-rest">2026-11-28</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">华盛顿山与百年红木缆车：为煤矿与工人修的峭壁天梯</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>在 Duquesne 上站花2分钟往底层看一眼仍在缓缓转动的1877年木齿铁轮机械室，再转身看脚下金三角全景！</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>眼前这座贴着30度陡崖直上直下的红色老缆车已经跑了近150年，它最早不是观光车，而是把山顶矿工和住户每天安全送到河边工厂上班的“峭壁公交车”。</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-04 · 大学与博物馆</span>
+            <span class="pill pill-rest">2026-11-27, 2026-11-28, 2026-11-29</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">42层“学习大教堂”与31间民族教室（含中国教室）</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>从草坪抬头看石灰岩外墙，层层收缩的纵向石柱把目光一直引向42层尖顶，像一座现代版的哥特石山。</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>眼前这座像城堡一样冲入云霄的42层高楼不是教堂，而是匹兹堡大学的教学楼，一楼环绕着各国移民亲手捐建的31间民族教室，其中就有一间中国教室。</div>
+        </div>
+        <div class="node">
+          <div class="node-top">
+            <span class="badge-gold" style="font-size:30px;padding:6px 18px;">HC-11 · 沿途与工程历史</span>
+            <span class="pill pill-rest">2026-11-27, 2026-11-29</span>
+          </div>
+          <div class="node-title" style="font-size:37px;">美国第一条“超级高速公路”与 Flight 93 国家纪念园</div>
+          <div class="node-line"><strong>👀 看得见的线索：</strong>车上留心每一座高速隧道入口上方刻着的建造年份和山名；在 Flight 93 园区请抬头寻找那座93英尺高的风铃塔，静心听风声。</div>
+          <div class="node-sub"><strong>💡 为什么值得看：</strong>我们脚下这条 PA Turnpike 建于1940年，是美国第一条真正意义的现代高速公路，直接借用了19世纪没修完的铁路山洞穿过了阿勒格尼群山。</div>
+        </div>
+  <div class="ftr">
+    <span>编号 HC-03/04/07/08/09/11 与网站「历史文化」页一一对应</span>
+    <span>来源均取自博物馆、大学与国家公园官方资料</span>
+  </div>
+</div></div>
+<div style="text-align:center;color:#556;font-size:13px;margin-top:10px;">AI-GENERATED PITTSBURGH FAMILY PLAN — Gemini 4 Neon (High) — 2026-11-23 07:22 ET — Independent work, not guaranteed live navigation.</div>
+</body></html>
